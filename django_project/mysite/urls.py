@@ -16,10 +16,14 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+from mysite.views import HomeView
+
 #from bookmark.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+
+	url(r'^$',HomeView.as_view(), name='home'),
     url(r'^bookmark/', include('bookmark.urls',namespace='bookmarka')),
     url(r'^blog/', include('blog.urls',namespace='blog')),
 
